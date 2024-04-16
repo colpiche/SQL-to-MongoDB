@@ -1,0 +1,35 @@
+{
+    "_id": {
+        "$oid": "661e42a190370a06f828278f"
+    },
+    "livre_id": 4,
+    "nom": "lectus justo",
+    "auteurs": [
+        {
+            "auteur_id": 72,
+            "prenom": "Latifah",
+            "nom": "Wilkinson"
+        },
+        {
+            "auteur_id": 75,
+            "prenom": "Hall",
+            "nom": "Paul"
+        },
+        {
+            "auteur_id": 86,
+            "prenom": "Anjolie",
+            "nom": "Weber"
+        }
+    ],
+    "genres": [
+        {
+            "genre_id": 6,
+            "libelle": "odio"
+        },
+        {
+            "genre_id": 15,
+            "libelle": "lacus."
+        }
+    ],
+    "synopsis": "mi lacinia mattis. Integer eu lacus. Quisque imperdiet, erat nonummy ultricies ornare, elit elit fermentum risus, at fringilla purus mauris a nunc. In at pede. Cras vulputate velit eu sem. Pellentesque ut ipsum ac mi eleifend egestas. Sed pharetra, felis eget varius ultrices, mauris ipsum porta elit,"
+}
