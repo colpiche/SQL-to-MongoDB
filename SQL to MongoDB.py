@@ -83,7 +83,7 @@ for row in rows:
                 "prenom": row['auteur_prenom'] if row['auteur_prenom'] is not None else "",
                 "nom": row['auteur_nom'] if row['auteur_nom'] is not None else ""
             }
-            livre['auteurs'].append(auteurs_dict[auteur_id])
+        livre['auteurs'].append(auteurs_dict[auteur_id])
 
     # Ajouter le genre au document de livre s'il n'existe pas déjà et s'il n'est pas null
     if row['genre_id'] is not None:
@@ -93,7 +93,7 @@ for row in rows:
                 "genre_id": genre_id,
                 "libelle": row['genre_libelle'] if row['genre_libelle'] is not None else ""
             }
-            livre['genres'].append(genres_dict[genre_id])
+        livre['genres'].append(genres_dict[genre_id])
 
 
 # Insérer les documents de livre dans MongoDB
@@ -117,7 +117,9 @@ for row in rows:
     exemplaire = {
         "exemplaire_id": row['exemplaire_id'],
         "livre_id": row['livre_id'],
-        "etat": row['etat']
+        "etat": row['etat'],
+        "date_achat": datetime.datetime.combine(row['date_achat'], datetime.time(0, 0)) if row['date_achat'] else None,
+        "editeur_id": row['editeur_id']
     }
     exemplaire_list.append(exemplaire)
 
@@ -182,6 +184,7 @@ rows = query(sql_query)
 # Transformation des données de la table "exemplaire_emprunt"
 for row in rows:
     abonne_id = row['abonne_id']
+    date_fin: datetime.datetime | None = None
     if row['date_fin'] is not None:
         date_fin = datetime.datetime.combine(row['date_fin'], datetime.time(0, 0))
     # Ajoute l'emprunt au bon abonné dans le dictionnaire
