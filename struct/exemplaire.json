@@ -1,8 +1,0 @@
-{
-    "_id": {
-        "$oid": "661e42a190370a06f82827f0"
-    },
-    "exemplaire_id": 1,
-    "livre_id": 4,
-    "etat": "ACCEPTABLE"
-}
