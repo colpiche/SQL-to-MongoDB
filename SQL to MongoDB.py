@@ -83,7 +83,9 @@ for row in rows:
                 "prenom": row['auteur_prenom'] if row['auteur_prenom'] is not None else "",
                 "nom": row['auteur_nom'] if row['auteur_nom'] is not None else ""
             }
-        livre['auteurs'].append(auteurs_dict[auteur_id])
+            livre['auteurs'].append(auteurs_dict[auteur_id])
+        elif auteurs_dict[auteur_id] not in livre['auteurs']:
+            livre['auteurs'].append(auteurs_dict[auteur_id])
 
     # Ajouter le genre au document de livre s'il n'existe pas déjà et s'il n'est pas null
     if row['genre_id'] is not None:
@@ -93,7 +95,9 @@ for row in rows:
                 "genre_id": genre_id,
                 "libelle": row['genre_libelle'] if row['genre_libelle'] is not None else ""
             }
-        livre['genres'].append(genres_dict[genre_id])
+            livre['genres'].append(genres_dict[genre_id])
+        elif genres_dict[genre_id] not in livre['genres']:
+            livre['genres'].append(genres_dict[genre_id])
 
 
 # Insérer les documents de livre dans MongoDB
