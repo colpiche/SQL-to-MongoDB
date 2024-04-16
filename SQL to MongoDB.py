@@ -1,6 +1,8 @@
+import datetime
 import pymysql.cursors
 import pymongo
-import datetime
+import os
+from dotenv import load_dotenv
 from typing import Any
 
 
@@ -20,11 +22,12 @@ def mongo_insert(collection: str, documents: list[dict[str, Any]]) -> None:
 
 
 # Connexion à la base de données SQL
+load_dotenv()
 sql_connection = pymysql.connect(
-    host='localhost',
-    user='user',
-    password='pass',
-    database='bigdb',
+    host=str(os.getenv('HOST')),
+    user=str(os.getenv('USER')),
+    password=str(os.getenv('PASS')),
+    database=str(os.getenv('DB'))
 )
 
 # Connexion à la base de données MongoDB
